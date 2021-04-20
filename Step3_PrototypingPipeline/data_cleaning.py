@@ -1,0 +1,6 @@
+countries = pd.read_csv('/Users/kobihancz/Desktop/Springboard_Capstone/Country.csv')
+indicatorsle  = pd.read_csv('/Users/kobihancz/Desktop/Springboard_Capstone/Indicators.csv')
+series = pd.read_csv('/Users/kobihancz/Desktop/Springboard_Capstone/Series.csv')
+countryNotes = pd.read_csv('/Users/kobihancz/Desktop/Springboard_Capstone/CountryNotes.csv')
+seriesNotes = pd.read_csv('/Users/kobihancz/Desktop/Springboard_Capstone/SeriesNotes.csv')
+footNotes = pd.read_csv('/Users/kobihancz/Desktop/Springboard_Capstone/Footnotes.csv')
