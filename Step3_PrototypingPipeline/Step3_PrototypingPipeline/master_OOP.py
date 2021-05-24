@@ -20,4 +20,4 @@ word_indicators = WorldIndicators()
 word_indicators.transform_countries()
 word_indicators.transform_indicators()
 
-dkdkdk
+
