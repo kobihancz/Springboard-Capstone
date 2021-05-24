@@ -1,19 +1,21 @@
 import zipfile
 from kaggle.api.kaggle_api_extended import KaggleApi
 
-DATASET = 'world-development-indicators'
-OWNER = 'worldbank'
+DATASET = 'worldbank/world-development-indicators'
 
-def dataset_dwnload(datset,owner):
-    api = KaggleApi()
-    api.authenticate()
-    api.datasets_download(datset, owner)
+class DataSets:
 
-    with zipfile.ZipFile() as zipref:
-        zipref.extractall()
+    def dataset_dwnload(self,datset):
+        api = KaggleApi()
+        api.authenticate()
 
-dataset_dwnload(DATASET,OWNER)
+        api.dataset_download_files(datset)
 
+        with zipfile.ZipFile('/Users/kobihancz/Desktop/Fixed_Springboard_Capstone/Springboard_Capstone/world-development-indicators.zip', 'r') as zipref:
+            zipref.extractall('/Users/kobihancz/Desktop/Fixed_Springboard_Capstone/Springboard_Capstone/Dataset')
+
+DataSets = DataSets()
+DataSets.dataset_dwnload(DATASET)
 
 
 
