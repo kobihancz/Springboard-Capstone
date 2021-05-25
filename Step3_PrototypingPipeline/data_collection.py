@@ -3,7 +3,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 DATASET = 'worldbank/world-development-indicators'
 
-class DataSets:
+class DataSetDownloader:
 
     def dataset_dwnload(self,datset):
         api = KaggleApi()
@@ -11,11 +11,11 @@ class DataSets:
 
         api.dataset_download_files(datset)
 
-        with zipfile.ZipFile('/Users/kobihancz/Desktop/Fixed_Springboard_Capstone/Springboard_Capstone/world-development-indicators.zip', 'r') as zipref:
-            zipref.extractall('/Users/kobihancz/Desktop/Fixed_Springboard_Capstone/Springboard_Capstone/Dataset')
+        with zipfile.ZipFile('/Users/kobihancz/Desktop/Springboard-Capstone/world-development-indicators.zip', 'r') as zipref:
+            zipref.extractall('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset')
 
-DataSets = DataSets()
-DataSets.dataset_dwnload(DATASET)
+DataSet = DataSetDownloader()
+DataSet.dataset_dwnload(DATASET)
 
 
 
