@@ -22,11 +22,12 @@ class DatabaseHandler:
     def load_country_data(self,file_path_csv):
         insert_stmt = ("INSERT INTO country " 
                     "(CountryCode, ShortName, LongName, Alpha2Code, CurrencyUnit, SpecialNotes, Region, IncomeGroup, Wb2Code, "
-                    "NationalAccountsBaseYear, NationalAccountsReferenceYear, SnaPriceValuation, LendingCategory, OtherGroups, SystemOfNationalAccounts,"
+                    "NationalAccountsBaseYear, SnaPriceValuation, LendingCategory, OtherGroups, SystemOfNationalAccounts,"
                     "PppSurveyYear, BalanceOfPaymentsManualInUse, ExternalDebtReportingStatus, SystemOfTrade, GovernmentAccountingConcept,"
                     "ImfDataDisseminationStandard, LatestPopulationCensus, LatestHouseholdSurvey,SourceOfMostRecentIncomeAndExpenditureData, " 
                     "VitalRegistrationComplete, LatestAgriculturalCensus, LatestIndustrialData, LatestTradeData, LatestWaterWithdrawalData) " 
-                    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+                    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+        
         with self.connection.cursor() as cursor:
             with open(file_path_csv) as csv_file:
                 try:
@@ -90,7 +91,7 @@ class DatabaseHandler:
     def load_indicators_data(self,file_path_csv):
         insert_stmt = ("INSERT INTO indicators " 
                     "(CountryName,CountryCode,IndicatorName,IndicatorCode,Year,Value) " 
-                    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+                    "VALUES (%s,%s,%s,%s,%s,%s)")
         with self.connection.cursor() as cursor:
             with open(file_path_csv) as csv_file:
                 try:
@@ -110,11 +111,10 @@ class DatabaseHandler:
 
     def load_series_data(self,file_path_csv):
         insert_stmt = ("INSERT INTO series " 
-                    "(SeriesCode,Topic,IndicatorName,ShortDefinition,LongDefinition,UnitOfMeasure, "
-                    "Periodicity,BasePeriod,OtherNotes,AggregationMethod,LimitationsAndExceptions, "
-                    "NotesFromOriginalSource,GeneralComments,Source,StatisticalConceptAndMethodology, "
-                    "DevelopmentRelevance,RelatedSourceLinks,OtherWebLinks,RelatedIndicators,LicenseType) " 
-                    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+                    "(SeriesCode,Topic,IndicatorName,LongDefinition, "
+                    "Periodicity,AggregationMethod,LimitationsAndExceptions, "
+                    "GeneralComments,Source,DevelopmentRelevance,LicenseType) " 
+                    "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
         with self.connection.cursor() as cursor:
             with open(file_path_csv) as csv_file:
                 try:
@@ -133,7 +133,7 @@ class DatabaseHandler:
         self.connection.commit()
 
     def load_series_notes(self,file_path_csv):
-        insert_stmt = ("INSERT INTO sales " 
+        insert_stmt = ("INSERT INTO series_notes " 
                     "(Seriescode, Year, Description) " 
                     "VALUES (%s,%s,%s)")
         with self.connection.cursor() as cursor:
@@ -155,19 +155,8 @@ class DatabaseHandler:
 
 pipeline = DatabaseHandler('root', 'Riley123$','Capstone_DB')
 pipeline.load_country_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Country.csv')
-# pipeline.load_country_notes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/CountryNotes.csv')
-# pipeline.load_footnotes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Footnotes.csv')
-# pipeline.load_indicators_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Indicators.csv')
-# pipeline.load_series_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Series.csv')
-# pipeline.load_series_notes('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/SeriesNotes.csv')
-
-
-
-# insert_stmt = ("INSERT INTO country " 
-#                     "('CountryCode', 'ShortName', 'LongName', 'Alpha2Code', 'CurrencyUnit', 'SpecialNotes', 'Region', 'IncomeGroup', 'Wb2Code', "
-#                     "'NationalAccountsBaseYear', 'NationalAccountsReferenceYear', 'SnaPriceValuation', 'LendingCategory', 'OtherGroups', 'SystemOfNationalAccounts',"
-#                     "'PppSurveyYear', 'BalanceOfPaymentsManualInUse', 'ExternalDebtReportingStatus', 'SystemOfTrade', 'GovernmentAccountingConcept',"
-#                     "'ImfDataDisseminationStandard', 'LatestPopulationCensus', 'LatestHouseholdSurvey','SourceOfMostRecentIncomeAndExpenditureData', " 
-#                     "'VitalRegistrationComplete', 'LatestAgriculturalCensus', 'LatestIndustrialData', 'LatestTradeData', 'LatestWaterWithdrawalData') " 
-#                     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
-
+pipeline.load_country_notes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/CountryNotes.csv')
+pipeline.load_footnotes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Footnotes.csv')
+pipeline.load_indicators_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Indicators.csv')
+pipeline.load_series_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Series.csv')
+pipeline.load_series_notes('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/SeriesNotes.csv')

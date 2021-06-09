@@ -24,16 +24,17 @@ Clean.clean_foot_notes()
 Clean.clean_series_notes()
 Clean.clean_series()
 Clean.clean_countries()
+Clean.clean_indicators
 print("Cleaned Dataset")
 
 # #Adds Cleaned Data to the Database
-# pipeline = DatabaseHandler('root', 'Riley123$','Capstone_DB')
-# pipeline.load_country_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Country.csv')
-# pipeline.load_country_notes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/CountryNotes.csv')
-# pipeline.load_footnotes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Footnotes.csv')
-# pipeline.load_indicators_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Indicators.csv')
-# pipeline.load_series_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Series.csv')
-# pipeline.load_series_notes('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/SeriesNotes.csv')
+pipeline = DatabaseHandler('root', 'Riley123$','Capstone_DB')
+pipeline.load_country_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Country.csv')
+pipeline.load_country_notes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/CountryNotes.csv')
+pipeline.load_footnotes_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Footnotes.csv')
+pipeline.load_indicators_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Indicators.csv')
+pipeline.load_series_data('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/Series.csv')
+pipeline.load_series_notes('/Users/kobihancz/Desktop/Springboard-Capstone/Dataset/SeriesNotes.csv')
 print("Uploaded Dataset to Database")
 
 
