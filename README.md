@@ -8,7 +8,7 @@ Prototyping the Pipeline: In this Step I put all of the previouse stems together
 
 Scaling the Prototype: In this step I had to use Apchche spark to scale upp the processing power of my code. I had to make decisions on what parts of my previouse code needed to be changed to allow the piping to be done through apache spark. I eventually decided that for now the best aspect to scale up would be the cleaning portion so thats what I did. I opened a spark session and cleaned the data in there before importing it to the database. 
 
-Diagram: 
+Diagram: ![Step 5 diagram](https://user-images.githubusercontent.com/72058053/164945427-6850a18c-977d-4fc6-af64-4f5929da89d1.jpg)
 
 Next Steps: I will continue to work on this capstone project to allow for more relevant features such as cloud storage, EOD Batch Loads, analytical ETL, and a dashboard to easily view the pipeline.
 

@@ -1,0 +1,1 @@
+![Step 5 diagram](https://user-images.githubusercontent.com/72058053/164945427-6850a18c-977d-4fc6-af64-4f5929da89d1.jpg)
