@@ -1,0 +1,15 @@
+
+The Open Ended Capstone has been a rigorous and strenuous process. Ive learned so much suring the endless hours ive poured into getting it 
+working. This Write up will be discussing the Steps ive completed for the Project so far, and the steps I will continue to work on adding
+after sumission is completed. 
+
+I started the project by identifying a Dataset. The dataset I chose was filled with tons of world indicators that showed economic viability 
+in different countries. I started by accessing Kaggles API and locally ingesting the 2 GB dataset. I then transfered the data into a jupyter
+Notebook where I explored the data and decided on what I could do to make it more aligned with the question i Wanted it to answer. I Then
+I cleaned the data I wanted and stored it locally again. The Final step I completed was adding apche spark to my code in order leverage 
+Sprks versatile data processing abilities. 
+
+I have 4 more steps I would like to add to this Project on my own time. First I want exchange my local storage for cloud storage in either
+an Azure storage account or an S3 Bucket. 2nd I would like to add an End of Day Batch load to process and update my dataset in real time.
+Then I will add an Anylitcal ETL application using the storage account in azure. Lastly I will create a dashboard to easily view the entire 
+pipelines process on a daily basis. 
